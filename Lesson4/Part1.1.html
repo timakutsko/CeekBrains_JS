@@ -1,0 +1,25 @@
+<script>
+    // ES6
+    function Product5(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+    Product5.prototype.make25PercentDiscount5 = function() {
+        this.price *= 0.75;
+    }
+    const es5Product = new Product5("ES5", 100);
+    es5Product.make25PercentDiscount5();
+
+    // ES6
+    class Product6 {
+        constructor (name, price){
+            this.name = name;
+            this.price = price;
+        }
+        make25PercentDiscount6() {
+            this.price *= 0.75;
+        }
+    }
+    const es6Product = new Product6("ES6", 200);
+    es6Product.make25PercentDiscount6();
+</script>
