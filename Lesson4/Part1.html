@@ -1,0 +1,33 @@
+<script>
+    function digitFunc(number) {
+        number *= 1;
+        if(number < 1000 && number >= 0 && Number.isInteger(number)) {
+            this.number = number;
+        }
+        else {
+            throw new Error ("Only from 0 to 999 and integer")
+        }
+    }
+
+    digitFunc.prototype.toDigit = function() {
+        const units = this.number % 10;
+        let tens = null;
+        if(this.number >= 100) {
+            tens = parseInt(this.number / 10);
+            tens = parseInt(tens % 10);
+        }
+        else {
+            tens = parseInt(this.number / 10);
+        }
+        const hundreds = parseInt(this.number / 100);
+        console.log(`Number ${this.number} contains:`);
+        console.log(`units: ${units}`);
+        console.log(`tens: ${tens}`);
+        console.log(`hundreds: ${hundreds}`);
+    }
+
+    const userInput = prompt("Input number from 0 to 999");
+    const df = new digitFunc(userInput);
+    df.toDigit();
+
+</script>

@@ -27,34 +27,6 @@
 
 
     // es6
-    class Post6 {
-        constructor(author, text, date) {
-            this.author = author;
-            this.text = text;
-            this.date = date;
-        }
-
-        edit6(input) {
-            this.text = input;
-        }
-    }
-
-    class AttachedPost6 extends Post6{
-        constructor(author, text, date, highlighted) {
-            super(author, text, date);
-            this.highlighted = false;
-        }
-
-        makeTextHighlighted6() {
-            this.highlighted = true;
-        }
-    }
-
-    const post6 = new Post6("Zelobiba", "Whazuup!", "14.02.2022");
-    post6.edit6("Hello");
-
-    const attachedPost6 = new AttachedPost6("Jerry", "How are you&", "13.02.2022");
-    attachedPost6.makeTextHighlighted6();
 
 
 </script>
