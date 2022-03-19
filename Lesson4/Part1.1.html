@@ -1,0 +1,60 @@
+<script>
+    // es5
+    function Post5(author, text, date) {
+        this.author = author;
+        this.text = text;
+        this.date = date;
+    }
+    Post5.prototype.edit5 = function(input) {
+        this.text = input;
+    }
+
+    function AttachedPost5(author, text, date) {
+        Post5.call(this, author, text, date)
+        this.highlighted = false;
+    }
+    AttachedPost5.prototype = Object.create(Post5.prototype);
+    AttachedPost5.prototype.constructor = AttachedPost5;
+    AttachedPost5.prototype.makeTextHighlighted5 = function() {
+        this.highlighted = true;
+    }
+
+    const post5 = new Post5("Max", "Whaat?", "14.02.2022");
+    post5.edit5("Ok!");
+
+    const attachedPost5 = new AttachedPost5("Tom", "Hello", "13.02.2022");
+    attachedPost5.makeTextHighlighted5();
+
+
+    // es6
+    class Post6 {
+        constructor(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        edit6(input) {
+            this.text = input;
+        }
+    }
+
+    class AttachedPost6 extends Post6{
+        constructor(author, text, date, highlighted) {
+            super(author, text, date);
+            this.highlighted = false;
+        }
+
+        makeTextHighlighted6() {
+            this.highlighted = true;
+        }
+    }
+
+    const post6 = new Post6("Zelobiba", "Whazuup!", "14.02.2022");
+    post6.edit6("Hello");
+
+    const attachedPost6 = new AttachedPost6("Jerry", "How are you&", "13.02.2022");
+    attachedPost6.makeTextHighlighted6();
+
+
+</script>
